@@ -5,11 +5,11 @@ app.use(express.json())
 const{router} = require("./Routes/student.routes")
 app.use("/",router)
 
-
+const PORT = process.env.PORT || 3000;
 
 const {connection} = require("./config/db")
 
-app.listen(8000,async()=>{
+app.listen(PORT,"0.0.0.0",async()=>{
     try{
         await connection;
         console.log("db connected successfulyy")
